@@ -76,18 +76,18 @@ console.log(streamersLegends);
 // introduzco 'Ru' me deberia de mostrar solo el streamer 'Rubius'. Si
 // introduzco 'i', me deberia de mostrar el streamer 'Rubius' e 'Ibai'.
 
-const handleChange = (event) => {
-    console.log(event);
-    const streamerInput = streamers.filter((streamer) => 
-        streamer.name.toLowerCase().includes(input$$.value.toLowerCase())
-    );
+// const handleChange = (event) => {
+//     console.log(event);
+//     const streamerInput = streamers.filter((streamer) => 
+//         streamer.name.toLowerCase().includes(input$$.value.toLowerCase())
+//     );
 
-    console.log(streamerInput);
-};
+//     console.log(streamerInput);
+// };
 
-const input$$ = document.getElementById('toFilterStreamers');
+// const input$$ = document.getElementById('toFilterStreamers');
 
-input$$.addEventListener("input", handleChange);
+// input$$.addEventListener("input", handleChange);
 
 // 5.7 Dado el siguiente html y javascript, utiliza .filter() para mostrar por consola 
 // los streamers que incluyan la palabra introducida en el input. De esta forma, si 
@@ -95,25 +95,21 @@ input$$.addEventListener("input", handleChange);
 // me deberia de mostrar el streamer 'Rubius' e 'Ibai'.
 // En este caso, muestra solo los streamers filtrados cuando hagamos click en el button.
 
+const filterStreamers = (event) => {
+    const input$$ = event.target.previousElementSibling;
+    const filteredStreamers = streamers.filter((streamer) => 
+    streamer.name.toLowerCase().includes(input$$.value.toLowerCase())
+    );
+    console.log(filteredStreamers);
+};
 
-// <!doctype html>
-// <html lang="en">
-// <head>
-// <meta charset="UTF-8">
-//              <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-//              <meta http-equiv="X-UA-Compatible" content="ie=edge">
-//              <title>Document</title>
-// </head>
-// <body>
-//   <input type="text" data-function="toFilterStreamers"/>
-//   <button data-function="toShowFilterStreamers">Filter</button>
-// </body>
-// </html>
+const button$$ = document.querySelector('[data-function="toShowFilterStreamers"]');
 
+button$$.addEventListener("click", filterStreamers);
 
+function muestraMensaje() {
+    alert('Gracias por pinchar');
+  }
 
-// function muestraMensaje() {
-//     alert('Gracias por pinchar');
-//   }
+document.getElementById("pinchable").onclick = muestraMensaje;
 
-//   document.getElementById("pinchable").onclick = muestraMensaje;

@@ -107,6 +107,9 @@ const button$$ = document.querySelector('[data-function="toShowFilterStreamers"]
 
 button$$.addEventListener("click", filterStreamers);
 
+
+////////////////////////////////////////// EXPERIMENTILLO //////////////////////////////////////////////////////
+
 function muestraMensaje() {
     alert('Gracias por pinchar');
   }
